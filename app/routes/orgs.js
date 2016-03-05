@@ -1,6 +1,8 @@
 import Ember from 'ember';
 
 export default Ember.Route.extend({
+  favorites: Ember.inject.service(),
+
   model() {
     return [
       {id: 'facebook'},
@@ -8,5 +10,11 @@ export default Ember.Route.extend({
       {id: 'yahoo'},
       {id: 'ember.js'}
     ];
+  },
+
+  actions:{
+    addToFavorites(orgs) {
+      this.get('favorites').add(orgs);
+    }
   }
 });

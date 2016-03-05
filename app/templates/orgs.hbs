@@ -1,6 +1,9 @@
 <ul>
 {{#each content as |org|}}
-  <li>{{link-to org.id "org" org.id}}</li>
+  <li>
+    {{link-to org.id "org" org.id}}
+    <span {{action "addToFavorites" org}}>add to favorites</span>
+  </li>
 {{/each}}
 </ul>
 {{outlet}}
