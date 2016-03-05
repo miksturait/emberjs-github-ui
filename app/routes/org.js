@@ -8,5 +8,15 @@ export default Ember.Route.extend({
       .then(function (org) {
         return {id: org.login, oldId: org.id, name: org.name, avatarUrl: org.avatar_url};
       });
+  },
+
+  actions: {
+    error(jqxhr) {
+      if (jqxhr.status === 404) {
+        this.intermediateTransitionTo('org.notfound');
+      } else {
+        return true;
+      }
+    }
   }
 });
