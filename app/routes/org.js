@@ -6,7 +6,7 @@ export default Ember.Route.extend({
 
     return $.get(`https://api.github.com/orgs/${orgName}`)
       .then(function (org) {
-        return {id: org.login, oldId: org.id, name: org.name};
+        return {id: org.login, oldId: org.id, name: org.name, avatarUrl: org.avatar_url};
       });
   }
 });
