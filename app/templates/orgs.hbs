@@ -1,0 +1,6 @@
+<ul>
+{{#each content as |org|}}
+  <li>{{link-to org.id "org" org.id}}</li>
+{{/each}}
+</ul>
+{{outlet}}
