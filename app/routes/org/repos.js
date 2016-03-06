@@ -7,7 +7,14 @@ export default Ember.Route.extend({
     return $.get(`https://api.github.com/orgs/${org.id}/repos`)
       .then(function (repos) {
         return repos.map(function (repo) {
-          return {id: repo.name, oldId: repo.id, name: repo.name, full_name: repo.full_name};
+          return {
+            id: repo.name,
+            oldId: repo.id,
+            name: repo.name,
+            fullName: repo.full_name,
+            forks: repo.forks,
+            watchers: repo.watchers,
+          };
         });
       });
   }
