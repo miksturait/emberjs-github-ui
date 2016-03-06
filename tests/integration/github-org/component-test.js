@@ -13,18 +13,22 @@ describeComponent(
     integration: true
   },
   function() {
-    it('renders', function() {
-      // Set any properties with this.set('myProperty', 'value');
-      // Handle any actions with this.on('myAction', function(val) { ... });
-      // Template block usage:
-      // this.render(hbs`
-      //   {{#github-org}}
-      //     template content
-      //   {{/github-org}}
-      // `);
+    it('display organisation name and `add to favorites`', function() {
+      this.set('emberOrg', {id: 'emberjs', name: 'Ember.js', full_name: 'Ember.js'});
+      this.render(hbs`{{github-org org=emberOrg}}`);
 
-      this.render(hbs`{{github-org}}`);
-      expect(this.$()).to.have.length(1);
+      expect(this.$('li').html()).to
+        .contain('Ember.js').and
+        .contain('add to favorites');
+    });
+
+    it('add organisation to favorite list', function() {
+      this.set('emberOrg', {id: 'emberjs', name: 'Ember.js', full_name: 'Ember.js'});
+      this.render(hbs`{{github-org org=emberOrg}}`);
+
+      $("span:contains('add to favorites')").click();
+
+      expect($("li > span").html()).to.eql('[ FAV ]');
     });
   }
 );

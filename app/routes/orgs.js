@@ -4,10 +4,10 @@ export default Ember.Route.extend({
 
   model() {
     return [
-      {id: 'facebook'},
-      {id: 'netflix'},
-      {id: 'yahoo'},
-      {id: 'emberjs'}
+      {id: 'facebook', name: 'Facebook'},
+      {id: 'netflix', name: 'Netflix'},
+      {id: 'yahoo', name: 'Yahoo'},
+      {id: 'emberjs', name: 'Ember.js'}
     ];
   }
 });
