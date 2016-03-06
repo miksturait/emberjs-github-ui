@@ -9,5 +9,10 @@ export default Ember.Component.extend({
     addToFavorites(orgs) {
       this.get('favorites').add(orgs);
     }
+    // alternative
+    // {{github-org on-fav-clicked='actionNameFromRouter' org=org}}
+    // favoriteWasClicked() {
+    //   this.sendAction('on-fav-clicked', org);
+    // }
   }
 });
