@@ -1,5 +1,9 @@
 {{link-to org.id "org" org.id}}
 
-<span {{action "addToFavorites" org}}>add to favorites</span>
+{{#if isFavorited}}
+  <span>[ FAV ]</span>
+{{else}}
+  <span {{action "addToFavorites"}}>add to favorites</span>
+{{/if}}
 
 {{yield}}
