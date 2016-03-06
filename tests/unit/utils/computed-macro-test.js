@@ -1,10 +1,14 @@
-import computedMacro from 'github-ui/utils/computed-macro';
-import { module, test } from 'qunit';
+/* jshint expr:true */
+import { expect } from 'chai';
+import {
+  describe,
+  it
+} from 'mocha';
+import isInArray from 'github-ui/utils/computed-macro';
 
-module('Unit | Utility | computed macro');
 
-// Replace this with your real tests.
-test('it works', function(assert) {
-  let result = computedMacro();
-  assert.ok(result);
+describe('computedMacro', function() {
+  // Replace this with your real tests.
+  it('works', function() {
+  });
 });
