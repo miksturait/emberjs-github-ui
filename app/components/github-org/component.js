@@ -5,7 +5,7 @@ export default Ember.Component.extend({
   tagName: 'li',
 
   favorites: Ember.inject.service(),
-  isFavorited: isInArray('org', 'favorites.items.[]'),
+  isFavorited: isInArray('org', 'favorites.items'),
 
   actions: {
     addToFavorites() {
