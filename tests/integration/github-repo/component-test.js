@@ -13,18 +13,14 @@ describeComponent(
     integration: true
   },
   function() {
-    it('renders', function() {
-      // Set any properties with this.set('myProperty', 'value');
-      // Handle any actions with this.on('myAction', function(val) { ... });
-      // Template block usage:
-      // this.render(hbs`
-      //   {{#github-repo}}
-      //     template content
-      //   {{/github-repo}}
-      // `);
+    it('display repo name and watchers and forks count', function() {
+      this.set('emberRepository', {id: 'ember.js', name: 'Ember.js', full_name: 'Ember.js', watchers: 20, forks: 35});
+      this.render(hbs`{{github-repo repo=emberRepository}}`);
 
-      this.render(hbs`{{github-repo}}`);
-      expect(this.$()).to.have.length(1);
+      expect(this.$('li').html()).to
+        .contain('Ember.js').and
+        .contain('Watchers: 20').and
+        .contain('Forks: 35');
     });
   }
 );
